@@ -7,6 +7,27 @@ set message 'Hey, dude!'
 get message
 ```
 
+## Searching for Items - Checking Keys
+
+Don't use the `keys` command. It blocks the server which is sub-optimal.
+
+```
+scan cursor [MATCH pattern] [COUNT count] [TYPE type]
+````
+`cursor` is an integer value of the database cursor position to start scanning from.
+
+### List the keys
+
+```redis
+scan 0
+```
+
+### Search for values
+
+```redis
+scan 0 MATCH "rules*"
+```
+
 # References
 
 Most of this information comes from Stephen Grider's [Redis:The Complete Developer's Guide](https://www.udemy.com/course/redis-the-complete-developers-guide-p/) course on Udemy.
